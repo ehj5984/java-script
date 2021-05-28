@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+</head>
+<body>
+
+  hello world
+
+</body>
+  <script >
+// let a = 10 ;  //javascript는 let 이라고 선언을 하면 어떤 문자도 다 담을 수 있다.
+// console.log(a);
+//
+// a= "abc";
+// console.log(a);
+//
+// let news = {};
+// news.title = "속보";
+// news.content = "ㅁㅁㅁㅁ";
+//
+// console.log(news);
+//
+// let human1 = {
+//   age : '20',
+//   height : '180cm',
+//   name : 'john' };
+//
+// console.log(1,human1);
+//
+//
+// let human2 = {};
+// human2.age = "30";
+// human2.height = "160cm";
+// human2.name = "jane";
+//
+// console.log(2,human2);
+//
+// let human3 = {};
+// human3.age = "25";
+// human3.height = "170cm";
+// human3.name = "jack";
+//
+// console.log(3,human3);
+//
+// console.log(4,human1,human2,human3);
+//
+// let arr1 = [1,2,3];
+// console.log(arr1[0],arr1[1],arr1[3]);
+//
+// arr1[0] =20;
+// console.log(arr1[0],arr1[1],arr1[3]);
+//
+//
+// let humanArray = [];
+//
+// humanArray[0] = {
+//   age : '20',
+//   height : '180cm',
+//   name : 'john' };
+//
+//
+// humanArray[1] = {};
+//   humanArray[1].age = "30";
+//   humanArray[1].height = "160cm";
+//   humanArray[1].name = "jane";
+//
+//
+//   humanArray[2] = {
+//     age : '25',
+//     height : '170cm',
+//     name : 'jack' };
+//
+// console.log(humanArray[0],humanArray[1],humanArray[2]);
+//
+// let i = 0;
+//
+// for(console.log("1번"); !console.log("2번"); console.log("혲")){
+//   console.log("3번");
+//
+//   i = i + 1;
+//   if(i>5) break;
+//
+// }
+//
+
+
+//
+// for(let a = 1; a < 999; a++){
+//   if(a % 2 == 1){
+//   console.log('ㅁㅁ',a);
+// }
+//   if(a >= 100)
+//   break;
+// }
+//
+//
+// for(let b = 0; b < 100; b++) {
+//   if(b % 2 == 1)
+//   console.log('ㄴㄴ',b)
+// }
+//
+// for(let j = 1; j < 100; j = j + 2) {
+//   console.log(j)
+// }
+//
+//
+// let arr= [1,2,3,4,5,6,7,8,9,10]
+// console.log(arr[0]);
+//
+// for(let i=0; i<arr.length; i++){
+//   console,log(arr[i]);
+//
+//
+// }
+
+// let star = "";
+// star +="*";
+// star +="*";
+// star +="*";
+// star +="*";
+// star = star + "*";
+// star = star + "*";
+// star = star + "*";
+// star = star + "*";
+// console.log(star);
+//
+// let star = "";
+// star +="*";
+// console.log(star);
+//
+// star = "";
+// star +="*";
+// star +="*";
+// star +="*";
+// console.log(star);
+//
+// star = "";
+// star +="*";
+// star +="*";
+// star +="*";
+// star +="*";
+// star +="*";
+// console.log(star);
+//
+
+for(let i=0; i<5; i++){
+  let star = "";
+
+  for(let j=1; j<10; j=j+2){
+  star = "";
+
+  for(let i=0; i<j; i++){
+  star +="*";
+
+  }
+  console.log(star);
+}
+
+
+
+for(let i=5; i<5; i++){
+  for(let j=0; j<i; j++){
+
+  console.log("*");
+}
+}
+
+
+let staar = "";
+for(let i=5; i>0; i--){
+staar +="*";
+console.log(staar);
+}
+
+let star = "";
+
+for(let j=10; j>0; j=j-2){
+star = "";
+
+for(let i=1; i<j; i++){
+star +="*";
+
+}
+console.log(star);
+}
+
+
+
+let star = "";
+
+  for(let j=1; j<10; j=j+2){
+    star = "";
+
+  for(let i=0; i<j; i++){
+    star +="*";
+
+            }
+      console.log(star);
+  }
+
+
+  for(let j=10; j>0; j=j-2){
+    star = "";
+
+  for(let i=1; i<j; i++){
+    star +="*";
+
+            }
+      console.log(star);
+  }
+
+
+  for(let i = 1; i<10; i=i+2){
+     star = "";
+      for(let j = 0; j<i; j++) {
+        star += "*";
+        }
+        console.log(star)
+      }
+  for(let i = 0; i<10; i=i+2) {
+     star = "";
+     for(let j = 8; j>i; j--) {
+       star += "*";
+     }
+     console.log(star)
+  }
+
+
+  for(let i = 1; i<14; i+=2) {
+    star = "";
+    for(let j = 14; j>i; j--) {
+      star += "*";
+      }
+      console.log(star)
+    }
+
+
+  //
+  // for(let j = 1; j <12; j=j+2){
+  //     star = "";
+  //     for(let i = 0; i < j; i ++){
+  //       star += "*"
+  //     }
+  //     console.log(star);
+  //     for(let i = 0; j > i ; i --){
+  //       star += "*"
+  //     }
+  //     console.log(star);
+  //   }
+
+
+
+
+
+
+
+
+  </script>
+</html>

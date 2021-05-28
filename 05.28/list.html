@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<body>
+  <div id="resultArea"></div>
+  <input type="button" value="돌아가기" id="returnBtn">
+
+</body>
+
+<script>
+  $.ajax({
+    type: "get",
+    url: `/listItem`,
+    data: {},
+    success: function(res) {
+      for (let i = 0; i < res.length; i++) {
+        $("#resultArea").append(`<span id = "delete${res[i].NO}">
+         ${res[i].NO}/${res[i].item}/${res[i].price}
+          <input type="button" value="삭제" id="deleteBtn" onclick= "deletefunction(${res[i].NO})"> </span><br>`);
+      }
+    }
+  });
+
+
+  $("#returnBtn").click(function() {
+    location.href = "/practice";
+  });
+
+  function deletefunction(num) {
+    $.ajax({
+      type: "delete",
+      url: `/delete`,
+      data: {
+        inputNum : num
+      },
+      success: function(res) {
+        $(`#delete${num}`).remove()
+        console.log(res);
+        alert("삭제")
+      }
+    });
+    console.log(num);
+  }
+</script>
+
+</html>

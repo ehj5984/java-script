@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>title area</title>
+
+  <script src="https://code.jquery.com/jquery-latest.min.js"> </script>
+
+</head>
+
+<body>
+<!-- 라디오 박스는 네임으로 묶어 -->
+
+  X : <input type="text" value="" id="X"><br>
+  Y : <input type="text" value="" id="Y"><br><br>
+  짝 <input type="radio" name="radioTxt" value="even">
+  홀 <input type="radio" name="radioTxt" value="odd"><br>
+  <input type="button" value="단 계산" id="Calcul"><br><br>
+  <span id="resultArea">resultArea 내용</span>
+
+</body>
+
+<script>
+  // 위의 resultArea 내용을 찍어줌
+  console.log("#resultArea").html());
+
+  $("#Calcul").click(function() {
+    $("#resultArea").html("");
+
+    let number = $("input:radio[name='radioTxt']:checked").val();
+    let XX = Number($("#X").val());  // 입력값을 숫자로
+    let YY = $("#Y").val();
+    console.log(XX, YY);
+    console.log(number);
+
+    if (number == "even") {
+      for (let i = 1; i <= YY; i++) {
+        if (i % 2 == 0) {
+          let res = XX * i;
+          console.log(XX, i, res);
+          $("#resultArea").append(`${XX} x ${i} = ${res} <br>`);
+        }
+      }
+    }
+
+
+    if (number == "odd") {
+      for (let i = 1; i <= YY; i++) {
+        if (i % 2 == 1) {
+          let res = XX * i;
+          console.log(XX, i);
+          $("#resultArea").append(`${XX} x ${i} = ${res} <br>`);
+        }
+      }
+    }
+  });
+</script>

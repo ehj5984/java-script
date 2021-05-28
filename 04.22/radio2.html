@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>title area</title>
+
+  <script src="https://code.jquery.com/jquery-latest.min.js"> </script>
+
+</head>
+
+<body>
+  <!-- 라디오 박스는 네임으로 묶어 -->
+
+  1<input type="radio" name="radioName" ><br>
+  2<input type="radio" name="radioName" ><br>
+  3<input type="radio" name="radioName" ><br>
+  4<input type="radio" name="radioName" ><br>
+  5<input type="radio" name="radioName" ><br>
+  6<input type="radio" name="radioName" ><br>
+  7<input type="radio" name="radioName" ><br>
+  8<input type="radio" name="radioName" ><br>
+
+  <input type="button" value="몇 번째?" id="result">
+  <span id="resultArea"> </span>
+
+</body>
+
+<script>
+
+
+  console.log($('input[name="radioName"]')[0].checked);
+  console.log($("input[name='radioName']")[1].checked);
+  console.log($("input[name='radioName']")[2].checked);
+
+  // let number = $("input:radio[name='radioName']:checked").val();
+  // console.log(number);
+
+  $("#result").html("");
+  $("#result").click(function() {
+
+    for (let i=0; i<$('input[name="radioName"]').length;  i++){
+      if ($('input[name="radioName"]')[i].checked){
+        console.log(i+1);
+      }
+    }
+
+  });
+
+
+
+</script>

@@ -1,0 +1,79 @@
+<!-- <!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+
+<body>
+   no : <input type = "text" id ="no">
+  <input type="button" value="버튼1" id="button1">
+
+<br>
+<span id = "resultArea"></span>
+
+
+  <script>
+    $("#button1").click(function() {
+      $.ajax({
+        type: "GET",
+        url: `/studentInfoPractice?no=${$("#no").val()}` //겟 방식으로/studentInfoPractice 라는 라우터에 보낸다
+        data: {
+        },
+
+        success: function(res) {
+        $("resultArea").append(`${res[0].NO} / ${res[0].studentNo} /${res[0].NAME} <br>`);
+        // },
+        // error: function(res) {
+
+        }
+      });
+    });
+  </script>
+
+
+
+</body>
+
+</html> -->
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <!-- // jquery 쓰겠다고 명시해줘야함 -->
+</head>
+
+<body>
+  no : <input type="text" id="no">
+  <input type='button' value='버튼1' id="button1">
+  <br>
+  <span id="resultArea"></span>
+  <script>
+    // document.getElementById("button1").addEventListener("click", function(){
+    //   console.log(document.getElementById("loginId").value, document.getElementById("password").value);
+    // });
+
+    // jquery ajax 구글링
+    $("#button1").click(function() {
+    $.ajax({
+      type: "GET",
+      url: `/studentInfoPractice?no=${$("#no").val()}`,
+      data: {},
+      success: function(res) {
+        $("#resultArea").html(""); //결과값 반복되지 않게 해줌
+        $("#resultArea").append(`${res[0].NO} / ${res[0].studentNo} / ${res[0].NAME}<br>`);
+      },
+    });
+    });
+  </script>
+
+</body>
+
+</html>

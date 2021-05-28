@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+
+<body>
+
+
+  id : <input type="text" id="loginId" > <br>
+  password :<input type="text" id="password"> <br>
+
+
+  <input type="button" value="버튼1" id="button1">
+
+  <script>
+
+    // console.log(document.getElementById("button1").addEventListner("click", function() {
+    //   alert(1); // click했을 때 일어날 일들을 적어줌
+    //      // console.log("클릭") 으로 적으면 개발자 도구 console
+    // })); // 버튼 1을 누르면 alert가 뜨게하고 싶으면 하는 방.
+
+
+    // document.getElementById("button1").addEventListner("click", function() {
+    //   console.log(document.getElementById("id").value, document.getElementById("password").value);
+    // }); //document는 node랑 관련이 없음 걍 html용
+
+
+    $("button1").click(function() {
+      console.log($("loginId").val(),$("password").val());
+      $("loginId").val("");
+      $("password").val("");
+
+    }); // 서버에서는 못쓰는데 자바스크립트에서 html을 제어하는데 편리하게 하기위해 사용
+    // 위의 document 문장이랑 같은 역할
+
+
+
+
+    $("#start_ajax").click(function(){
+        $.ajax({
+            type:"GET",
+            url:"./dbtest", //겟 방식으로 dbtest라는 라우터에 보낸다
+            data : {name : "홍길동"},
+            dataType : "xml",
+            success: function(xml){
+                console.log(xml);
+            },
+            error: function(xhr, status, error) {
+                alert(error);
+            }
+        });
+    });
+
+
+
+
+  </script>
+
+</body>
+
+</html>

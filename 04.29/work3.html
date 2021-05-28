@@ -1,0 +1,66 @@
+//교수님 모르겠아ㅓ
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> test html file </title>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"> </script>
+
+  </head>
+
+<body>
+    <form method="post" action="test.jsp">
+    <input type="button" value="추가" onclick="addInput();" />
+    <input type="button" value="출력" id="result"><br>
+
+      <span id="resultArea"></span>
+
+  </form>
+
+</body>
+<div id="parah"></div>
+<script>
+
+  var arrInput = new Array(0);
+  var arrInputValue = new Array(0);
+
+
+  function addInput() {
+    arrInput.push(arrInput.length);
+    arrInputValue.push("");
+    display();
+  }
+
+  function display() {
+    document.getElementById('parah').innerHTML = "";
+    for (intI = 0; intI < arrInput.length; intI++) {
+      document.getElementById('parah').innerHTML += createInput(arrInput[intI], arrInputValue[intI]);
+    }
+    console.log(document.getElementById('parah').innerHTML)
+  }
+
+  function saveValue(intId, strValue) {
+    arrInputValue[intId] = strValue;
+  }
+
+  function createInput(id, value) {
+    return "<input type='text' id='test " + id + "' onChange='javascript:saveValue(" + id + ",this.value)' value='" +
+      value + "'><br>";
+
+      for(int i =0; i<arrInputValue.length; i++ ){
+          int sum += id ;
+          console.log(sum);
+
+      }
+  }
+
+
+
+
+
+
+</script>
+
+
+</html>

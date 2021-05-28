@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>test html file </title>
+
+   <script src="https://code.jquery.com/jquery-latest.min.js"> </script>
+
+  </head>
+
+  <body>
+    hello html
+    console.log($("#getAjaxBtn"));
+<input type="text" id="stdNo" >
+<input type="button" vlaue="버튼" id="getAjaxBtn">
+
+  </body>
+    <script type="text/javascript">
+    console.log($("#getAjaxBtn"));
+        $("#getAjaxBtn").click(function(){
+
+            $.ajax({
+                type:"GET",
+                url:"/testdb", //겟 방식으로 dbtest라는 라우터에 보낸다
+                data : {
+                  no : $("#stdNo").val()
+                },
+
+                success: function(res){
+                  // ${res[0].No}
+                    console.log(res);
+
+                }
+    });
+            });
+  </script>
+
+
+</html>

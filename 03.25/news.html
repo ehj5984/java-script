@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://code.jquery.com/jquery-latest.min.js"> </script>
+
+</head>
+
+<body>
+
+   <br>
+  제목 : <input type="text" id="No"><br>
+  내용 : <input type="text" id="Title"><br>
+  content : <input type="text" id="Content"><br>
+  <input type="button" id="newsInfo" value="입력">
+
+
+</body>
+<script type="text/javascript">
+  $("#newsInfo").click(function() {
+    console.log($("#No").val(), $("#Title").val(), $("#Content").val());
+
+    $.ajax({
+      type: "POST",
+      url: `/news`,
+      data: {
+        Title: $("#Title").val(),
+        Content: $("#Content").val(),
+      },
+
+      success: function(res) {
+        console.log(res);
+        $("#resultArea").appennd(`<br> ${res[0].no}/${res[0].title} / ${res[0].content}<br>`)
+
+      }
+
+    });
+
+  });
+
+</script>
+
+</html>

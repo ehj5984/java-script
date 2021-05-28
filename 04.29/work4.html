@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> test html file </title>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"> </script>
+
+  </head>
+
+
+  <body>
+
+    학생정보입력<br>
+
+    이름 : <input type="text" id="studentName" ><br>
+    학번 : <input type="text" id="studentdNo" ><br>
+    <input type="button" id="insertStudent" value="입력">
+
+
+  </body>
+
+  <script type="text/javascript">
+
+    $("#insertStudent").click(function(){
+
+      console.log($("#studentdNo").val(),$("#studentName").val())
+
+        $.ajax({
+            type:"POST",
+            url:`/insertStudent`,
+            data : {
+              studentNo : $("#studentdNo").val(),
+              studentNAME : $("#studentName").val(),
+            },
+
+            success: function(res){
+            console.log(res);
+
+            }
+          });
+        });
+
+  </script>
+
+</html>

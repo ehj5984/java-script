@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>title area</title>
+
+  <script src="https://code.jquery.com/jquery-latest.min.js"> </script>
+
+</head>
+
+<body>
+  <!-- 라디오 박스는 네임으로 묶어 -->
+  값 1 <br>
+  : <input type="text" value="" id="X"><br>
+
+  값 2 <br>
+  : <input type="text" value="" id="Y"><br>
+
+  <input type="button" value="계산" id="result"><br>
+  <span id="resultArea"> </span>
+
+</body>
+
+<script>
+
+
+  $("#result").html("");
+  $("#result").click(function() {
+
+
+      let X = Number($("#X").val());  // 입력값을 숫자로
+      let Y = Number($("#Y").val());
+      let max = Math.max(X , Y);
+      let min = Math.min(X , Y) ;
+
+
+      let add =  X + Y ;
+      let sub =  Math.abs(X - Y);
+      let multi =  X * Y ;
+      let divi =  max / min ;
+
+     console.log(`더하기 : `+ add +`, 빼기 : `+sub +`, 곱하기 : `+multi +`, 나누기 : `+ divi);
+
+
+    });
+
+</script>
+
+</html>

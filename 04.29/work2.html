@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>title area</title>
+
+  <script src="https://code.jquery.com/jquery-latest.min.js"> </script>
+
+</head>
+
+<body>
+
+  1<input type="radio" name="radioName0" >
+  2<input type="radio" name="radioName0">
+  3<input type="radio" name="radioName0">
+  4<input type="radio" name="radioName0">
+  5<input type="radio" name="radioName0">
+  6<input type="radio" name="radioName0" >
+  7<input type="radio" name="radioName0">
+  8<input type="radio" name="radioName0">
+  9<input type="radio" name="radioName0">
+  10<input type="radio" name="radioName0"><br>
+
+  1<input type="radio" name="radioName1" >
+  2<input type="radio" name="radioName1">
+  3<input type="radio" name="radioName1">
+  4<input type="radio" name="radioName1">
+  5<input type="radio" name="radioName1">
+  6<input type="radio" name="radioName1" >
+  7<input type="radio" name="radioName1">
+  8<input type="radio" name="radioName1">
+  9<input type="radio" name="radioName1">
+  10<input type="radio" name="radioName1"><br>
+
+
+  1<input type="radio" name="radioName2" >
+  2<input type="radio" name="radioName2">
+  3<input type="radio" name="radioName2">
+  4<input type="radio" name="radioName2">
+  5<input type="radio" name="radioName2">
+  6<input type="radio" name="radioName2" >
+  7<input type="radio" name="radioName2">
+  8<input type="radio" name="radioName2">
+  9<input type="radio" name="radioName2">
+  10<input type="radio" name="radioName2"><br>
+
+  <input type="button" value="계산" id="result"><br>
+
+</body>
+
+<script>
+
+    $("#result").click(function() {
+      $("#resultArea").html("");
+      let num1 =0;
+      let num2 =0;
+      let num3 =0;
+
+      for (let i=0; i<$('input[name="radioName0"]').length;  i++){
+        if ($('input[name="radioName0"]')[i].checked){
+          num1 = i+1;
+        }
+      }
+
+      for (let i=0; i<$('input[name="radioName1"]').length;  i++){
+        if ($('input[name="radioName1"]')[i].checked){
+          num2 = i+1;
+        }
+      }
+      for (let i=0; i<$('input[name="radioName2"]').length;  i++){
+        if ($('input[name="radioName2"]')[i].checked){
+          num3 = i+1;
+        };
+      }
+
+      let max = Math.max(num1,num2,num3);
+      let min = Math.min(num1,num2,num3);
+
+      let res = Math.pow(max, min);
+
+      console.log(res)
+
+    });
+
+    </script>
+
+    </html>
