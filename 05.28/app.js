@@ -31,6 +31,11 @@ app.get('/list', function(req, res) {
   res.sendfile("list.html")
 });
 
+app.get('/updateForm', function(req, res) {
+  res.sendfile("updateForm.html")
+});
+
+
 app.get('/listItem', function(req, res) {
   connection.query(`SELECT * FROM test3`,
     function(error, results, fields) {

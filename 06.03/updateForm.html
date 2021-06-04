@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<body>
+  아이템 입력폼 <br>
+  아이템 이름 : <input type="text" id="item" value="">
+  가격 : <input type="text" id="price" value="">
+  <input type="button" id="updateFUNC" value="수정"><br>
+  <input type="button" id="goMain" value="돌아가기"><br>
+</body>
+
+<script>
+  let num = location.href.split("?")[1];
+  console.log(num);
+  $.ajax({
+    method: "get",
+    url: `/oneItemUpdate`,
+    data: {
+      num : num ,
+      // 스트링형태로 변형
+    },
+    success: function(res) {
+      console.log(res)
+      $("#item").val(res[0].item)
+      $("#price").val(res[0].price)
+      // alert(res)
+    }
+  });
+
+  console.log(num);
+  // alert(location.href)
+  $("#updateFUNC").click(function() {
+    console.log("click")
+    $.ajax({
+      method: "post",
+      url: `/updateDB`,
+      data: {
+        num: num + "",
+        // 스트링형태로 변형
+        inputPrice: $("#price").val(),
+        inputItem: $("#item").val(),
+      },
+      success: function(res) {
+        console.log(res)
+        alert(res)
+        location.href = "/practice"
+      }
+    });
+  });
+
+  $("#goMain").click(function() {
+    location.href = "http://localhost/practice";
+  });
+</script>
+
+
+</html>
