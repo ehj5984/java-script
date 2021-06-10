@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<body>
+  학생 입력<br>
+  학번 : <input type="text" id="studentNo" value=""><br>
+  이름 : <input type="text" id="studentName" value=""><br>
+  javascript : <input type="text" id="javascript" value=""><br>
+  python : <input type="text" id="python" value=""><br>
+  java : <input type="text" id="java" value=""><br>
+  <input type="button" id="press" value="입력"><br>
+  <input type="button" id="press2" value="메인페이지">
+  <input type="button" id="press3" value="목록페이지">
+</body>
+
+<script>
+  $("#press").click(function() {
+
+    $.ajax({
+      method: "POST",
+      url: `/inputDB`,
+      data: {
+
+        inputNo : $("#studentNo").val(),
+        inputName : $("#studentName").val(),
+        inputJavascript : $("#javascript").val(),
+        inputPython : $("#python").val(),
+        inputJava : $("#java").val(),
+      },
+      success: function(res) {
+        alert(res)
+      }
+    });
+  });
+
+  $("#press2").click(function() {
+    location.href = "http://localhost/practice";
+  });
+
+  $("#press3").click(function() {
+    location.href = "http://localhost/listPage";
+  });
+
+</script>
+
+
+</html>

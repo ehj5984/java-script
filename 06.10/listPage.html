@@ -8,22 +8,24 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 <body>
+  학생목록  <br>
   <div id="resultArea"></div>
-  <input type="button" value="돌아가기" id="returnBtn">
+  <input type="button" value="메인페이지" id="returnBtn">
 
 </body>
 
 <script>
   $.ajax({
     type: "get",
-    url: `/listItem`,
+    url: `/listNo`,
     data: {},
     success: function(res) {
       for (let i = 0; i < res.length; i++) {
-        $("#resultArea").append(`<span id = "delete${res[i].NO}">
-         ${res[i].NO}/${res[i].item}/${res[i].price}
-          <input type="button" value="삭제" id="deleteBtn" onclick= "deletefunction(${res[i].NO})"> </span>
-          <input type="button" value="수정" id = "updateForm" onclick= "updateForm(${res[i].NO})"> </span><br>
+        $("#resultArea").append(`<span id = "delete${res[i].no}">
+
+         ${res[i].no} / 학번 : ${res[i].studentNo} / 이름 : ${res[i].studentName} / javascript : ${res[i].javascript} / python : ${res[i].python} / java : ${res[i].java}
+          <input type="button" value="삭제" id="deleteBtn" onclick= "deletefunction(${res[i].no})"> </span>
+          <input type="button" value="수정" id = "updateForm" onclick= "updateForm(${res[i].no})"> </span><br>
           `);
       }
     }
@@ -52,10 +54,9 @@
   }
 
   function updateForm(num) {
-    location.href = `/updateForm?${num}`;
+    location.href = `/updatePage?${num}`;
   }
 
-  //location.href= "NewFile.jsp?name="+name+"&age="+age";
 
   // $("#updateForm").click(function(){
   //   location.href = "http://localhost/updateForm";

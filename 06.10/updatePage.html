@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<body>
+  학생 수정 <br>
+
+  학번 : <input type="text" id="studentNo" value= ""  readonly><br>
+  이름 : <input type="text" id="studentName" value=""><br>
+  javascript : <input type="text" id="javascript" value=""><br>
+  python : <input type="text" id="python" value=""><br>
+  java : <input type="text" id="java" value=""><br><br>
+
+
+  <input type="button" id="updateFunction" value="수정"><br>
+  <input type="button" id="goListPage" value="목록페이지">
+  <input type="button" id="goMain" value="메인페이지">
+
+</body>
+
+<script>
+  let num = location.href.split("?")[1];
+  console.log(num);
+  $.ajax({
+    method: "get",
+    url: `/oneStudentUpdate`,
+    data: {
+      num : num ,
+      // 스트링형태로 변형
+    },
+    success: function(res) {
+      console.log(res)
+      $("#studentNo").val(res[0].studentNo)
+      $("#studentName").val(res[0].studentName)
+      $("#javascript").val(res[0].javascript)
+      $("#python").val(res[0].python)
+      $("#java").val(res[0].java)
+
+    }
+  });
+
+  console.log(num);
+  // alert(location.href)
+  $("#updateFunction").click(function() {
+    console.log("click")
+    $.ajax({
+      method: "put",
+      url: `/updateDB`,
+      data: {
+        num: num ,
+        inputName: $("#studentName").val(),
+        inputJavascript: $("#javascript").val(),
+        inputPython: $("#python").val(),
+        inputJava: $("#java").val(),
+
+      },
+      success: function(res) {
+        console.log(res)
+        // alert(res)
+        // location.href = "/practice"
+      }
+    });
+  });
+
+  $("#goMain").click(function() {
+    location.href = "http://localhost/practice";
+  });
+
+  $("#goListPage").click(function() {
+    location.href = "http://localhost/listPage";
+  });
+</script>
+
+
+</html>

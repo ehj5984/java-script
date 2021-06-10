@@ -13,9 +13,9 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-const ejs = require("ejs");
-app.set('view engine','ejs'); // 1
-app.use(express.static(__dirname + '/'));
+// const ejs = require("ejs");
+// app.set('view engine','ejs'); // 1
+// app.use(express.static(__dirname + '/'));
 
 var bodayParser = require('body-parser');
 app.use(bodayParser.urlencoded({
@@ -38,7 +38,6 @@ app.get('/list', function(req, res) {
 app.get('/updateForm', function(req, res) {
   res.sendfile("updateForm.html")
 });
-
 
 app.get('/listItem', function(req, res) {
   connection.query(`SELECT * FROM test3`,
@@ -85,7 +84,7 @@ app.post('/buyProduct', function(req, res) {
     });
 });
 
-app.post('/updateDB', function(req, res) {
+app.put('/updateDB', function(req, res) {
       let inputItem = req.body.inputItem
       let inputPrice = req.body.inputPrice
       console.log(req.body.num, inputItem, inputPrice);
@@ -115,12 +114,7 @@ app.post('/updateDB', function(req, res) {
         });
       });
 
-
-
-
-
       // `UPDATE test3 SET price = ${itemPrice} , item = "${itemName}"`
-
 
   app.post('/inputDB', function(req, res) {
         let itemName = req.body.inputItem
@@ -133,7 +127,6 @@ app.post('/updateDB', function(req, res) {
             console.log(results);
             let len = results.length
             console.log(len);
-
 
 
             if (len == 0) {
